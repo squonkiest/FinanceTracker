@@ -1,0 +1,13 @@
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: API/Dockerfile
+  db:
+    image: postgres
+    container_name: DB
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:
